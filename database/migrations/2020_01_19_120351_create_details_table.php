@@ -22,6 +22,7 @@ class CreateDetailsTable extends Migration
             $table->boolean('invited_from_school');
             $table->boolean('kip');
             $table->string('no_kip', 25)->nullable();
+            $table->string('name_of_kip', 25)->nullable();
             $table->boolean('physical_kip_card');
             $table->enum('reason', ['pkh_kps_kip', 'bsm', 'orphange', 'dampal', 'drop_out', 'poor', 'conflict', 'convicted', 'other'])->nullable();
             $table->string('bank', 50)->nullable();

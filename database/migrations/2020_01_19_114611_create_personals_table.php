@@ -16,9 +16,9 @@ class CreatePersonalsTable extends Migration
         Schema::create('personals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('learner_id');
-            $table->string('name', 25);
             $table->string('nick', 25);
             $table->enum('gender',  ['boy', 'girl']);
+            $table->integer('number_of_siblings');
             $table->string('number_family_card', 100);
             $table->string('birth_certificate_registration', 50);
             $table->enum('religion', ['islam', 'kristen', 'hindu', 'budha']);

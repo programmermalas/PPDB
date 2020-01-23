@@ -9,13 +9,6 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('home')}}">Beranda</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Registrasi</li>
-                    <li class="breadcrumb-item active"><a href="#">Pribadi</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Alamat</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Detail</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Ayah</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Ibu</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Wali</a></li>
-                    <li class="breadcrumb-item active"><a href="#">Priodik</a></li>
                 </ol>
             </nav>
 
@@ -30,7 +23,7 @@
                         <input type="hidden" name="id" value="{{$registration->id ?? null}}">
 
                         <div class="form-group">
-                            <label for="name_of_candidate" class="col-form-label-sm">Nama calon peserta didik</label>
+                            <label for="name_of_candidate" class="col-form-label-sm">Nama calon peserta didik <span class="text-danger">*</span></label>
 
                             <input type="text" name="name_of_candidate" id="name_of_candidate" class="form-control form-control-sm @if ($errors->has('name_of_candidate')) is-invalid @endif" value="{{$registration->name_of_candidate ?? old('name_of_candidate')}}" placeholder="Masukan nama calon peserta disini">
 
@@ -42,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="place_of_birth" class="col-form-label-sm">Tempat lahir</label>
+                            <label for="place_of_birth" class="col-form-label-sm">Tempat lahir <span class="text-danger">*</span></label>
 
                             <input type="text" name="place_of_birth" id="place_of_birth" class="form-control form-control-sm @if ($errors->has('place_of_birth')) is-invalid @endif" value="{{$registration->place_of_birth ?? old('place_of_birth')}}" placeholder="Masukan tempat lahir disini">
 
@@ -78,7 +71,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parents_name" class="col-form-label-sm">Nama orang tua</label>
+                            <label for="parents_name" class="col-form-label-sm">Nama orang tua <span class="text-danger">*</span></label>
 
                             <input type="text" name="parents_name" id="parents_name" class="form-control form-control-sm @if ($errors->has('parents_name')) is-invalid @endif" value="{{$registration->parents_name ?? old('parents_name')}}" placeholder="Masukan nama orang tua disini">
 
@@ -90,7 +83,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="address" class="col-form-label-sm">Alamat</label>
+                            <label for="address" class="col-form-label-sm">Alamat <span class="text-danger">*</span></label>
 
                             <textarea name="address" id="address" class="form-control form-control-sm @if ($errors->has('address')) is-invalid @endif" placeholder="Masukan alamat disini" style="resize: none;">{{$registration->address ?? old('address')}}</textarea>
 
@@ -102,7 +95,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="phone" class="col-form-label-sm">No. Telephone/Handphone</label>
+                            <label for="phone" class="col-form-label-sm">No. Telephone/Handphone <span class="text-danger">*</span></label>
 
                             <input type="text" name="phone" id="phone" class="form-control form-control-sm @if ($errors->has('phone')) is-invalid @endif" value="{{$registration->phone ?? old('phone')}}" placeholder="Masukan no. telephone/handphone disini">
 

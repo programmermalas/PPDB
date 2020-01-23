@@ -17,7 +17,7 @@ class CreateCostsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('learner_id');
             $table->integer('institutional_development_contributions');
-            $table->integer('dontation');
+            $table->integer('donation');
             $table->integer('facilities_and_infrastructure');
             $table->integer('educational_assistance_donors');
             $table->integer('uniform');

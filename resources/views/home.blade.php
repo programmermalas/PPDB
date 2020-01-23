@@ -28,7 +28,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{--  --}}
+                            <tr>
+                                <td class="text-center">1</td>
+                                <td>{{Auth::user()->registration->name_of_candidate}}</td>
+                                <td>{{Auth::user()->registration->parents_name}}</td>
+                                <td>{{Auth::user()->registration->address}}</td>
+                                <td class="text-center">
+                                    <a href="{{route('registrant.registration.index')}}" class="btn btn-sm btn-info">Edit</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

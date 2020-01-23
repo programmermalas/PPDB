@@ -17,14 +17,14 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('learner_id');
             $table->string('street', 50);
-            $table->string('neighborhood_association', 5);
-            $table->string('citizens_association', 5);
+            $table->integer('neighborhood_association');
+            $table->integer('citizens_association');
             $table->string('village', 50);
             $table->string('sub_district', 50);
             $table->string('postal_code', 10);
             $table->enum('residence', ['parents', 'guardian', 'boarding_house', 'dormitory', 'orphanage', 'other']);
             $table->enum('transportation', ['foot', 'private_transportation', 'public_transportation', 'school_transportation', 'train', 'taxibike', 'horse', 'boat', 'other']);
-            $table->string('number_prosperous_family_card', 25);
+            $table->string('number_prosperous_family_card', 25)->nullable();
             $table->timestamps();
 
             $table->foreign('learner_id')

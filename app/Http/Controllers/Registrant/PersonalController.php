@@ -21,7 +21,14 @@ class PersonalController extends Controller
     {
         try
         {
-            $learner   = Learner::with('personal')->where('registration_id', Auth::user()->registration->id)->first();
+            if (Auth::user()->registration->id)
+            {
+                $learner   = Learner::with('personal')->where('registration_id', Auth::user()->registration->id)->first();
+            }
+            else
+            {
+                return redirect()->route('registrant.registration.index')->with('info', 'Silahkan isi registrasi terlebih dahulu');
+            }
         }
         catch (\Exception $e)
         {
@@ -41,9 +48,9 @@ class PersonalController extends Controller
     {
         $request->validate([
             'date'                              => 'required|date_format:d/m/Y',
-            'name'                              => 'required|max:25',
             'nick'                              => 'required|max:25',
             'gender'                            => 'required',
+            'number_of_siblings'                => 'required|numeric',
             'numbe_family_card'                 => 'reguired|max:100',
             'birth_certificate_registration'    => 'required|max:50',
             'religion'                          => 'required',
@@ -64,9 +71,9 @@ class PersonalController extends Controller
                 'learner_id'                        => $learner->id,
             ],
             [
-                'name'                              => $request->name,
                 'nick'                              => $request->nick,
                 'gender'                            => $request->gender,
+                'number_of_siblings'                => $request->number_of_siblings,
                 'number_family_card'                => $request->number_family_card,
                 'birth_certificate_registration'    => $request->birth_certificate_registration,
                 'religion'                          => $request->religion,
