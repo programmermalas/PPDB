@@ -20,9 +20,8 @@ class CreateRegistrationsTable extends Migration
             $table->string('place_of_birth', 25);
             $table->date('date_of_birth');
             $table->string('school_origin', 100)->nullable();
-            $table->string('parents_name', 25);
             $table->text('address');
-            $table->string('phone', 15);
+            $table->enum('status', ['unpayment', 'payment']);
             $table->timestamps();
 
             $table->foreign('user_id')

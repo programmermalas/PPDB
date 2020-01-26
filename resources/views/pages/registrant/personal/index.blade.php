@@ -63,11 +63,23 @@
                         <div class="form-group">
                             <label for="number_of_siblings" class="col-form-label-sm">Jumlah saudara kandung <span class="text-danger">*</span></label>
 
-                            <input type="text" name="number_of_siblings" id="number_of_siblings" class="form-control form-control-sm @if ($errors->has('number_of_siblings')) is-invalid @endif" value="{{$learner->personal->number_of_siblings ?? old('number_of_siblings')}}" placeholder="Masukan nama panggilan disini">
+                            <input type="number" name="number_of_siblings" id="number_of_siblings" class="form-control form-control-sm @if ($errors->has('number_of_siblings')) is-invalid @endif" value="{{$learner->personal->number_of_siblings ?? old('number_of_siblings')}}" placeholder="Masukan jumlah saudara kandung disini" min="0">
 
                             @if ($errors->has('number_of_siblings'))
                             <div class="invalid-feedback">
                                 {{$errors->first('number_of_siblings')}}
+                            </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label for="order_in_family" class="col-form-label-sm">Anak keberapa <span class="text-danger">*</span></label>
+
+                            <input type="number" name="order_in_family" id="order_in_family" class="form-control form-control-sm @if ($errors->has('order_in_family')) is-invalid @endif" value="{{$learner->personal->order_in_family ?? old('order_in_family')}}" placeholder="Masukan anak keberapa disini" min="0">
+
+                            @if ($errors->has('order_in_family'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('order_in_family')}}
                             </div>
                             @endif
                         </div>

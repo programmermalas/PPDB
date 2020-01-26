@@ -71,18 +71,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parents_name" class="col-form-label-sm">Nama orang tua <span class="text-danger">*</span></label>
-
-                            <input type="text" name="parents_name" id="parents_name" class="form-control form-control-sm @if ($errors->has('parents_name')) is-invalid @endif" value="{{$registration->parents_name ?? old('parents_name')}}" placeholder="Masukan nama orang tua disini">
-
-                            @if ($errors->has('parents_name'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('parents_name')}}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
                             <label for="address" class="col-form-label-sm">Alamat <span class="text-danger">*</span></label>
 
                             <textarea name="address" id="address" class="form-control form-control-sm @if ($errors->has('address')) is-invalid @endif" placeholder="Masukan alamat disini" style="resize: none;">{{$registration->address ?? old('address')}}</textarea>
@@ -90,18 +78,6 @@
                             @if ($errors->has('address'))
                             <div class="invalid-feedback">
                                 {{$errors->first('address')}}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone" class="col-form-label-sm">No. Telephone/Handphone <span class="text-danger">*</span></label>
-
-                            <input type="text" name="phone" id="phone" class="form-control form-control-sm @if ($errors->has('phone')) is-invalid @endif" value="{{$registration->phone ?? old('phone')}}" placeholder="Masukan no. telephone/handphone disini">
-
-                            @if ($errors->has('phone'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('phone')}}
                             </div>
                             @endif
                         </div>

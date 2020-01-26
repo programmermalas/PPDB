@@ -68,7 +68,7 @@ class UserController extends Controller
             $userCount  = User::whereYear('created_at', $year)->whereHas('roles', function ($query) {
                 return $query->where('name', 'registrant');
             })->count();
-            $number = $year . str_pad($userCount + 1, 4, '0', STR_PAD_LEFT);
+            $number = $year . '-B' . str_pad($userCount + 1, 4, '0', STR_PAD_LEFT);
 
             if ($request->role == 1)
             {
@@ -148,7 +148,7 @@ class UserController extends Controller
         $request->validate([
             'name'      => 'required',
             'number'    => "required|unique:users,number,$request->number,number",
-            'password'  => 'required|confirmed',
+            'password'  => 'nullable|confirmed',
         ]);
 
         try
