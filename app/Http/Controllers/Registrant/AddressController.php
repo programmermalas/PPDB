@@ -54,7 +54,7 @@ class AddressController extends Controller
             'postal_code'                   => 'required|max:10',
             'residence'                     => 'required',
             'transportation'                => 'required',
-            'number_prosperous_family_card' => 'required|max:25',
+            'number_prosperous_family_card' => 'nullable|max:25',
         ]);
 
         try
@@ -79,6 +79,6 @@ class AddressController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('registrant.detail.index');
+        return redirect()->route('registrant.father.index');
     }
 }

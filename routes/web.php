@@ -37,9 +37,6 @@ Route::group(['middlewaer' => ['role:registrant']], function () {
             Route::post('address', 'Registrant\AddressController@store')->name('address.store');
             Route::get('address', 'Registrant\AddressController@index')->name('address.index');
 
-            Route::post('detail', 'Registrant\DetailController@store')->name('detail.store');
-            Route::get('detail', 'Registrant\DetailController@index')->name('detail.index');
-
             Route::post('father', 'Registrant\FatherController@store')->name('father.store');
             Route::get('father', 'Registrant\FatherController@index')->name('father.index');
 

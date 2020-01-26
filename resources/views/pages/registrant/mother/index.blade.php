@@ -11,7 +11,6 @@
                     <li class="breadcrumb-item active"><a href="{{route('registrant.registration.index')}}">Registrasi</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('registrant.personal.index')}}">Pribadi</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('registrant.address.index')}}">Alamat</a></li>
-                    <li class="breadcrumb-item active"><a href="{{route('registrant.detail.index')}}">Detail</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('registrant.father.index')}}">Ayah</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Ibu</li>
                 </ol>
