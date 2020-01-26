@@ -62,6 +62,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::name('admin.')->group(function () {
             Route::resource('user', 'Admin\UserController');
             Route::post('user/show', 'Admin\UserController@show')->name('user.show');
+
+            Route::post('student/{id}', 'Admin\StudentController@update')->name('student.update');
+            Route::get('student/{id}', 'Admin\StudentController@edit')->name('student.edit');
+            Route::post('student/show', 'Admin\StudentController@show')->name('student.show');
+            Route::get('student', 'Admin\StudentController@index')->name('student.index');
         });
     });
 });

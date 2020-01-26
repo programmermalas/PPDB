@@ -35,6 +35,7 @@
                     <ul class="navbar-nav mr-auto">
                         @role('admin')
                         <li class="nav-item"><a href="{{route('admin.user.index')}}" class="nav-link">{{__('User')}}</a></li>
+                        <li class="nav-item"><a href="{{route('admin.student.index')}}" class="nav-link">{{__('Student')}}</a></li>
                         @endrole
                     </ul>
 
