@@ -222,38 +222,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="uniform" class="col-form-label-sm">Biaya seragam sekolah (belum dijahit), sebesar: </label>
-
-                            <br>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="uniform" id="uniform_a" value="530000" @if ($learner->cost()->exists() && $learner->cost->uniform  == 530000) checked @endif>
-                                        <label class="custom-control-label" for="uniform_a">a. putra Rp 530.000,-</label>
-                                        @if ($errors->has('uniform'))
-                                        <div class="invalid-feedback">
-                                            {{$errors->first('uniform')}}
-                                        </div>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="uniform" id="uniform_b" value="580000" @if ($learner->cost()->exists() && $learner->cost->uniform  == 580000) checked @endif>
-                                        <label class="custom-control-label" for="uniform_b">b. putri Rp 580.000,-</label>
-                                        @if ($errors->has('uniform'))
-                                        <div class="invalid-feedback">
-                                            {{$errors->first('uniform')}}
-                                        </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
                             <label for="infaq" class="col-form-label-sm">Infaq <span class="text-danger">*</span></label>
 
                             <input type="number" name="infaq" id="infaq" class="form-control form-control-sm @if ($errors->has('infaq')) is-invalid @endif" value="{{!empty($learner->cost->infaq) ?? old('infaq')}}" placeholder="Masukan infaq disini">

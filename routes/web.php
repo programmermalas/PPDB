@@ -51,6 +51,8 @@ Route::group(['middlewaer' => ['role:registrant']], function () {
 
             Route::post('cost', 'Registrant\CostController@store')->name('cost.store');
             Route::get('cost', 'Registrant\CostController@index')->name('cost.index');
+
+            Route::get('cost/total', 'Registrant\TotalController@index')->name('cost.total.index');
         });
     });
 });

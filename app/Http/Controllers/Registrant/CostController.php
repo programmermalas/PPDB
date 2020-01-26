@@ -51,13 +51,18 @@ class CostController extends Controller
             'donation'                                  => 'required|numeric',
             'facilities_and_infrastructure'             => 'required|numeric',
             'educational_assistance_donors'             => 'required|numeric',
-            'uniform'                                   => 'required|numeric',
             'infaq'                                     => 'required|numeric',
         ]);
 
-        
         try
         {
+            $uniform    = 530000;
+
+            if (Auth::user()->registration->learner->personal->gender == 'girl')
+            {
+                $uniform    = 580000;
+            }
+
             $cost   = Cost::updateOrCreate([
                 'learner_id'                                => $request->id,
             ],
@@ -66,7 +71,7 @@ class CostController extends Controller
                 'donation'                                  => $request->donation,
                 'facilities_and_infrastructure'             => $request->facilities_and_infrastructure,
                 'educational_assistance_donors'             => $request->educational_assistance_donors,
-                'uniform'                                   => $request->uniform,
+                'uniform'                                   => $uniform,
                 'infaq'                                     => $request->infaq,
             ]);
         }
@@ -75,6 +80,6 @@ class CostController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('home')->with('success', 'Registrasi siswa baru berhasil!');
+        return redirect()->route('registrant.cost.total.index');
     }
 }

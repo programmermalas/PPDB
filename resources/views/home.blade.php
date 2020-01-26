@@ -21,18 +21,24 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th class="text-center">No</th>
-                                <th>Name</th>
-                                <th>Parents</th>
-                                <th>Address</th>
-                                <th class="text-center">Action</th>
+                                <th>Nama</th>
+                                <th>Alamat</th>
+                                <th class="text-center">Status Pembayaran</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td class="text-center">1</td>
                                 <td>{{Auth::user()->registration->name_of_candidate}}</td>
-                                <td>{{Auth::user()->registration->parents_name}}</td>
                                 <td>{{Auth::user()->registration->address}}</td>
+                                <td class="text-center">
+                                    @if (Auth::user()->registration->status == 'unpayment')
+                                        <span class="badge badge-danger">Belum Dibayar</span>
+                                    @elseif (Auth::user()->registration->status == 'payment')
+                                        <span class="badge badge-success">Sudah Dibayar</span>
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     <a href="{{route('registrant.registration.index')}}" class="btn btn-sm btn-info">Edit</a>
                                 </td>
