@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
+                    Ipan Ganteng
                 </div>
 
                 <div class="links">
