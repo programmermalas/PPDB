@@ -70,17 +70,6 @@
                             @endif
                         </div>
 
-                        <div class="form-group">
-                            <label for="address" class="col-form-label-sm">Alamat <span class="text-danger">*</span></label>
-
-                            <textarea name="address" id="address" class="form-control form-control-sm @if ($errors->has('address')) is-invalid @endif" placeholder="Masukan alamat disini" style="resize: none;">{{$registration->address ?? old('address')}}</textarea>
-
-                            @if ($errors->has('address'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('address')}}
-                            </div>
-                            @endif
-                        </div>
                     </div>
 
                     <div class="card-footer">

@@ -24,7 +24,6 @@ class CreateAddressesTable extends Migration
             $table->string('postal_code', 10);
             $table->enum('residence', ['parents', 'guardian', 'boarding_house', 'dormitory', 'orphanage', 'other']);
             $table->enum('transportation', ['foot', 'private_transportation', 'public_transportation', 'school_transportation', 'train', 'taxibike', 'horse', 'boat', 'other']);
-            $table->string('number_prosperous_family_card', 25)->nullable();
             $table->timestamps();
 
             $table->foreign('learner_id')

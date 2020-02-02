@@ -136,18 +136,6 @@
                             </div>
                             @endif
                         </div>
-
-                        <div class="form-group">
-                            <label for="number_prosperous_family_card" class="col-form-label-sm">No. KKS (Kartu Keluarga Sejahtera)</label>
-
-                            <input type="text" name="number_prosperous_family_card" id="number_prosperous_family_card" class="form-control form-control-sm @if ($errors->has('number_prosperous_family_card')) is-invalid @endif" value="{{$learner->address->number_prosperous_family_card ?? old('number_prosperous_family_card')}}" placeholder="Masukan no. kks disini">
-
-                            @if ($errors->has('number_prosperous_family_card'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('number_prosperous_family_card')}}
-                            </div>
-                            @endif
-                        </div>
                     </div>
 
                     <div class="card-footer">

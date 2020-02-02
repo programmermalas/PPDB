@@ -43,7 +43,6 @@ class RegistrationController extends Controller
             'place_of_birth'    => 'required|max:25',
             'date_of_birth'     => 'required|date_format:d/m/Y',
             'school_origin'     => 'nullable|max:100',
-            'address'           => 'required',
         ]);
 
         try
@@ -58,7 +57,6 @@ class RegistrationController extends Controller
                 'place_of_birth'    => $request->place_of_birth,
                 'date_of_birth'     => $date,
                 'school_origin'     => $request->school_origin,
-                'address'           => $request->address,
             ]);
         }
         catch (\Exception $e)

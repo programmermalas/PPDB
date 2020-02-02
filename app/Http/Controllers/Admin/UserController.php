@@ -65,7 +65,7 @@ class UserController extends Controller
         try
         {
             $year   = Carbon::now()->format('Y');
-            $userCount  = User::whereYear('created_at', $year)->whereHas('roles', function ($query) {
+            $userCount  = User::withTrashed()->whereYear('created_at', $year)->whereHas('roles', function ($query) {
                 return $query->where('name', 'registrant');
             })->count();
             $number = $year . '-B' . str_pad($userCount + 1, 4, '0', STR_PAD_LEFT);

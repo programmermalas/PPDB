@@ -54,7 +54,6 @@ class AddressController extends Controller
             'postal_code'                   => 'required|max:10',
             'residence'                     => 'required',
             'transportation'                => 'required',
-            'number_prosperous_family_card' => 'nullable|max:25',
         ]);
 
         try
@@ -71,7 +70,6 @@ class AddressController extends Controller
                 'postal_code'                   => $request->postal_code,
                 'residence'                     => $request->residence,
                 'transportation'                => $request->transportation,
-                'number_prosperous_family_card' => $request->number_prosperous_family_card,
             ]);
         }
         catch (\Exception $e)
