@@ -18,7 +18,7 @@ class TotalController extends Controller
         try
         {
             $cost   = Auth::user()->registration->learner->cost;
-            $total  = $cost->institutional_development_contributions + $cost->donation + $cost->facilities_and_infrastructure + $cost->educational_assistance_donors + $cost->uniform + $cost->infaq;
+            $total  = $cost->institutional_development_contributions + $cost->donation + $cost->facilities_and_infrastructure + $cost->educational_assistance_donors + $cost->uniform + 865000 + 605000 + 100000 + $cost->infaq;
         }
         catch (\Exception $e)
         {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use PDF;
+use Auth;
 
 use App\Registration;
 
@@ -56,18 +58,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Registration $registration)
     {
-        try
-        {
-            $student  = Registration::findOrFail($id);
-        }
-        catch (\Exception $e)
-        {
-            return redirect()->back()->with('error', $e->getMessage());
-        }
-
-        return view('pages.admin.student.edit', compact('student'));
+        return view('pages.admin.student.edit', compact('registration'));
     }
 
     /**
@@ -77,7 +70,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Registration $registration)
     {
         $request->validate([
             'name_of_candidate'     => 'required|max:25',
@@ -86,9 +79,7 @@ class StudentController extends Controller
 
         try
         {
-            $student    = Registration::findOrFail($id);
-
-            $student->update([
+            $registration->update([
                 'name_of_candidate' => $request->name_of_candidate,
                 'status'            => $request->status,
             ]);
@@ -98,6 +89,16 @@ class StudentController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return redirect()->route('admin.student.index')->with('info', "Student $student->name_of_candidate updated!");
+        return redirect()->route('admin.student.index')->with('info', "Student $registration->name_of_candidate updated!");
+    }
+
+    public function print(Registration $registration)
+    {
+        $cost   = $registration->learner->cost;
+        $total  = $cost->institutional_development_contributions + $cost->donation + $cost->facilities_and_infrastructure + $cost->educational_assistance_donors + $cost->uniform + 865000 + 605000 + 100000 + $cost->infaq;
+
+        $pdf    = PDF::loadview('pdfs.student.index', compact('registration', 'cost', 'total'))->setPaper([0, 0, 612, 935.433]);
+
+        return $pdf->stream('rincian biaya.pdf');
     }
 }

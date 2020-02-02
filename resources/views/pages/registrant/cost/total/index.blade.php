@@ -41,6 +41,21 @@
                     </tr>
                     <tr>
                         <td class="text-center">6.</td>
+                        <td>Biaya Pendidikan Satu Tahun</td>
+                        <td class="text-right">Rp{{number_format(865000, 0, ',', '.')}},-</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">7.</td>
+                        <td>Paket Buku Satu Tahun</td>
+                        <td class="text-right">Rp{{number_format(605000, 0, ',', '.')}},-</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">8.</td>
+                        <td>Biaya Administrasi</td>
+                        <td class="text-right">Rp{{number_format(100000, 0, ',', '.')}},-</td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">9.</td>
                         <td>Infaq</td>
                         <td class="text-right">Rp{{number_format($cost->infaq, 0, ',', '.')}},-</td>
                     </tr>
@@ -56,6 +71,19 @@
                     </tr>
                 </tfoot>
             </table>
+            <div>
+                <p>Catatan:</p>
+                <ol>
+                    <li>Pembayaran bisa langsung lunas atau diangsur dengan rincian
+                        <ol type="a">
+                            <li>50% Dari total biaya dibayar saat daftar ulang</li>
+                            <li>50% Berikutnya bisa diangsur sampai bulan November {{Carbon\Carbon::now()->format('Y')}}</li>
+                        </ol>
+                    </li>
+                    <li>Syahriyah/SPP tahun ketiga dan kelima naik sebesar Rp 10.000,-</li>
+                    <li>Infaq sarana dan prasarana pada tahun ketiga dan seterusnya menjadi Rp 15.000,- perbulan</li>
+                </ol>
+            </div>
         </div>
         <div class="card-footer">
             <a href="{{route('home')}}" class="btn btn-sm btn-primary">Kembali ke beranda</a>

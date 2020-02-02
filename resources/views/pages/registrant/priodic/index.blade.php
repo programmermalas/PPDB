@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label for="time" class="col-form-label-sm">Waktu tempuh ke sekolah <span class="text-danger">*dalam menit</span></label>
 
-                            <input type="text" name="time" id="time" class="form-control form-control-sm @if ($errors->has('time')) is-invalid @endif" value="{{$learner->priodic()->exists() ? Carbon\Carbon::parse($learner->priodic->time)->format('H:i') : old('time')}}" placeholder="Masukan waktu disini">
+                            <input type="text" name="time" id="time" class="form-control form-control-sm @if ($errors->has('time')) is-invalid @endif" value="{{$learner->priodic->time ?? old('time')}}" placeholder="Masukan waktu disini">
 
                             @if ($errors->has('time'))
                             <div class="invalid-feedback">

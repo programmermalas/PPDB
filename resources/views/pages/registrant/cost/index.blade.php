@@ -222,15 +222,47 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="infaq" class="col-form-label-sm">Biaya Pendidikan Satu Tahun</label>
+
+                            <input type="string" class="form-control form-control-sm" value="Rp 865.000,-" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infaq" class="col-form-label-sm">Biaya Paket Buku Satu Tahun</label>
+
+                            <input type="string" class="form-control form-control-sm" value="Rp 605.000,-" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="infaq" class="col-form-label-sm">Biaya Administrasi</label>
+
+                            <input type="string" class="form-control form-control-sm" value="Rp 100.000,-" readonly>
+                        </div>
+
+                        <div class="form-group">
                             <label for="infaq" class="col-form-label-sm">Infaq <span class="text-danger">*</span></label>
 
-                            <input type="number" name="infaq" id="infaq" class="form-control form-control-sm @if ($errors->has('infaq')) is-invalid @endif" value="{{!empty($learner->cost->infaq) ?? old('infaq')}}" placeholder="Masukan infaq disini">
+                            <input type="string" name="infaq" id="infaq" class="form-control form-control-sm @if ($errors->has('infaq')) is-invalid @endif" value="{{$learner->cost->infaq ?? old('infaq')}}" placeholder="Masukan infaq disini">
 
                             @if ($errors->has('infaq'))
                             <div class="invalid-feedback">
                                 {{$errors->first('infaq')}}
                             </div>
                             @endif
+                        </div>
+
+                        <div>
+                            <p>Catatan:</p>
+                            <ol>
+                                <li>Pembayaran bisa langsung lunas atau diangsur dengan rincian
+                                    <ol type="a">
+                                        <li>50% Dari total biaya dibayar saat daftar ulang</li>
+                                        <li>50% Berikutnya bisa diangsur sampai bulan November {{Carbon\Carbon::now()->format('Y')}}</li>
+                                    </ol>
+                                </li>
+                                <li>Syahriyah/SPP tahun ketiga dan kelima naik sebesar Rp 10.000,-</li>
+                                <li>Infaq sarana dan prasarana pada tahun ketiga dan seterusnya menjadi Rp 15.000,- perbulan</li>
+                            </ol>
                         </div>
                     </div>
 

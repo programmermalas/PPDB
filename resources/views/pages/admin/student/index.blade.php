@@ -51,6 +51,8 @@
                                     @endif    
                                 </td>
                                 <td class="text-center">
+                                    <a href="{{route('admin.student.print', $student->id)}}" class="btn btn-success btn-sm">Print</a>
+
                                     <a href="{{route('admin.student.edit', $student->id)}}" class="btn btn-info btn-sm">Edit</a>
                                 </td>
                             </tr>

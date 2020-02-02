@@ -31,7 +31,7 @@
                             <tr>
                                 <td class="text-center">1</td>
                                 <td>{{Auth::user()->registration->name_of_candidate}}</td>
-                                <td>{{Auth::user()->registration->address}}</td>
+                                <td>{{Auth::user()->registration->learner->address->street ?? null}}</td>
                                 <td class="text-center">
                                     @if (Auth::user()->registration->status == 'unpayment')
                                         <span class="badge badge-danger">Belum Dibayar</span>

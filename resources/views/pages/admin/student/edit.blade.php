@@ -8,14 +8,14 @@
             <div class="card">
                 <div class="card-header">User Edit</div>
 
-                <form action="{{route('admin.student.update', $student->id)}}" method="post">
+                <form action="{{route('admin.student.update', $registration->id)}}" method="post">
                     <div class="card-body">
                         @csrf
 
                         <div class="form-group">
                             <label for="name_of_candidate" class="col-form-label-sm">Name</label>
 
-                            <input type="text" name="name_of_candidate" id="name_of_candidate" class="form-control form-control-sm @if ($errors->has('name_of_candidate')) is-invalid @endif" value="{{old('name_of_candidate') ?: $student->name_of_candidate}}">
+                            <input type="text" name="name_of_candidate" id="name_of_candidate" class="form-control form-control-sm @if ($errors->has('name_of_candidate')) is-invalid @endif" value="{{old('name_of_candidate') ?: $registration->name_of_candidate}}">
 
                             @if ($errors->has('name_of_candidate'))
                             <div class="invalid-feedback">

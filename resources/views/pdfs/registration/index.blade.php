@@ -47,12 +47,14 @@
 		<thead>
 			<tr>
 				<th>Nama</th>
+				<th>Number</th>
                 <th>Password</th>
 			</tr>
         </thead>
         <tbody>
             <tr>
                 <td>{{$user->name}}</td>
+                <td>{{$user->number}}</td>
                 <td>{{$user->password_in_string}}</td>
             </tr>
         </tbody>
