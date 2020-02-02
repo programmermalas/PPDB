@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label for="height" class="col-form-label-sm">Tinggi Badan<span class="text-danger">*</span></label>
 
-                            <input type="number" name="height" id="height" class="form-control form-control-sm @if ($errors->has('height')) is-invalid @endif" value="{{!empty($learner->priodic->height) ? $learner->priodic->height : old('height')}}" placeholder="Masukan tinggi disini">
+                            <input type="number" name="height" id="height" class="form-control form-control-sm @if ($errors->has('height')) is-invalid @endif" value="{{!empty($learner->priodic->height) ? $learner->priodic->height : old('height')}}" placeholder="Masukan tinggi disini" min="0">
 
                             @if ($errors->has('height'))
                             <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label for="weight" class="col-form-label-sm">Berat Badan<span class="text-danger">*</span></label>
 
-                            <input type="number" name="weight" id="weight" class="form-control form-control-sm @if ($errors->has('weight')) is-invalid @endif" value="{{!empty($learner->priodic->weight) ? $learner->priodic->weight : old('weight')}}" placeholder="Masukan berat disini">
+                            <input type="number" name="weight" id="weight" class="form-control form-control-sm @if ($errors->has('weight')) is-invalid @endif" value="{{!empty($learner->priodic->weight) ? $learner->priodic->weight : old('weight')}}" placeholder="Masukan berat disini" min="0">
 
                             @if ($errors->has('weight'))
                             <div class="invalid-feedback">
@@ -53,25 +53,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="distance_from_home" class="col-form-label-sm">Jarak tempat tinggal ke sekolah</label>
-
-                            <br>
-    
-                            <div class="custom-control custom-control-inline custom-radio">
-                                <input class="custom-control-input" type="radio" name="distance_from_home" id="distance_from_home_ya" value="1" @if ($learner->priodic()->exists() && ($learner->priodic->distance_from_home  == 1)) checked @endif>
-                                <label class="custom-control-label" for="distance_from_home_ya">Kurang dari 1 km</label>
-                            </div>
-    
-                            <div class="custom-control custom-control-inline custom-radio">
-                                <input class="custom-control-input" type="radio" name="distance_from_home" id="distance_from_home_tidak" value="0" @if ($learner->priodic()->exists() && ($learner->priodic->distance_from_home  == 0)) checked @endif>
-                                <label class="custom-control-label" for="distance_from_home_tidak">Lebih dari 1 km</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="kilometer" class="col-form-label-sm">Sebutkan (dalam kilometer)</label>
 
-                            <input type="number" name="kilometer" id="kilometer" class="form-control form-control-sm @if ($errors->has('kilometer')) is-invalid @endif" value="{{$learner->priodic->kilometer ?? old('kilometer')}}" placeholder="Masukan kilometer disini">
+                            <input type="number" name="kilometer" id="kilometer" class="form-control form-control-sm @if ($errors->has('kilometer')) is-invalid @endif" value="{{$learner->priodic->kilometer ?? old('kilometer')}}" placeholder="Masukan kilometer disini" min="0">
 
                             @if ($errors->has('kilometer'))
                             <div class="invalid-feedback">
@@ -81,7 +65,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="time" class="col-form-label-sm">Waktu tempuh ke sekolah <span class="text-danger">*01:15</span></label>
+                            <label for="time" class="col-form-label-sm">Waktu tempuh ke sekolah <span class="text-danger">*dalam menit</span></label>
 
                             <input type="text" name="time" id="time" class="form-control form-control-sm @if ($errors->has('time')) is-invalid @endif" value="{{$learner->priodic()->exists() ? Carbon\Carbon::parse($learner->priodic->time)->format('H:i') : old('time')}}" placeholder="Masukan waktu disini">
 

@@ -18,9 +18,8 @@ class CreatePriodicsTable extends Migration
             $table->unsignedBigInteger('learner_id');
             $table->integer('height');
             $table->integer('weight');
-            $table->boolean('distance_from_home');
             $table->integer('kilometer');
-            $table->time('time');
+            $table->integer('time');
             $table->timestamps();
 
             $table->foreign('learner_id')

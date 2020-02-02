@@ -49,29 +49,20 @@ class PriodicController extends Controller
         $request->validate([
             'height'                => 'required|numeric',
             'weight'                => 'required|numeric',
-            'distance_from_home'    => 'required',
             'kilometer'             => 'required|numeric',
-            'time'                  => 'required|date_format:H:i',
+            'time'                  => 'required',
         ]);
             
         try
         {
-            $time   = null;
-
-            if ($request->time)
-            {
-                $time   = Carbon::createFromFormat('H:i', $request->time);
-            }
-
             $priodic    = Priodic::updateOrCreate([
                 'learner_id'    => $request->id,
             ],
             [
                 'height'                => $request->height,
                 'weight'                => $request->weight,
-                'distance_from_home'    => $request->distance_from_home,
                 'kilometer'             => $request->kilometer,
-                'time'                  => $time,
+                'time'                  => $request->time,
             ]);
         }
         catch (\Exception $e)
