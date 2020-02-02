@@ -79,9 +79,10 @@ class UserController extends Controller
             }
 
             $user   = User::create([
-                'name'      => $request->name,
-                'number'    => $number,
-                'password'  => bcrypt($request->password),
+                'name'                  => $request->name,
+                'number'                => $number,
+                'password'              => bcrypt($request->password),
+                'password_in_string'    => $request->password,
             ]);
 
             $role   = Role::findOrFail($request->role);
