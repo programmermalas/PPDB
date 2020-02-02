@@ -49,6 +49,8 @@
                                     <form action="{{route('admin.user.destroy', $user->id)}}" method="post">
                                         @csrf
                                         @method('delete')
+                                        <a href="{{route('admin.user.print', $user->id)}}" class="btn btn-success btn-sm">Print</a>
+
                                         <a href="{{route('admin.user.edit', $user->id)}}" class="btn btn-info btn-sm">Edit</a>
 
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>

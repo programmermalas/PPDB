@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Carbon\Carbon;
+use PDF;
 
 use App\User;
 
@@ -159,7 +160,8 @@ class UserController extends Controller
 
             if ($request->password)
             {
-                $user->password = bcrypt($request->password);
+                $user->password             = bcrypt($request->password);
+                $user->password_in_string   = $request->password;
             }
 
             $user->save();
@@ -192,5 +194,12 @@ class UserController extends Controller
         }
 
         return redirect()->route('admin.user.index')->with('warning', "User $user->name destroyed!");
+    }
+
+    public function print(User $user)
+    {
+        $pdf    = PDF::loadview('pdfs.registration.index', compact('user'));
+
+        return $pdf->stream('pendaftar.pdf');
     }
 }
