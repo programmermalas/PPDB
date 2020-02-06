@@ -75,6 +75,7 @@ class StudentController extends Controller
         $request->validate([
             'name_of_candidate'     => 'required|max:25',
             'status'                => 'required',
+            'nominal'               => 'required|numeric',
         ]);
 
         try
@@ -82,6 +83,7 @@ class StudentController extends Controller
             $registration->update([
                 'name_of_candidate' => $request->name_of_candidate,
                 'status'            => $request->status,
+                'nominal'           => $request->nominal,
             ]);
         }
         catch (\Exception $e)

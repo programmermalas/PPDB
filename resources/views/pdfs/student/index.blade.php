@@ -31,6 +31,9 @@
         .body tr td {
             border: 1px solid black;
         }
+        @page {
+            margin-bottom: 0;
+        }
     </style>
 
     <div style="margin-bottom: 40px;">
@@ -66,12 +69,12 @@
             <td style="vertical-align: top; width: 30%;">No.Telp/Hp</td>
             <td style="vertical-align: top; width: 3%;">:</td>
             <td style="vertical-align: top;">
-                <ul style="margin-top: 0;">
-                    <li>
+                <ul style="margin-top: 0; margin-left: 0; padding-left: 10px;">
+                    <li style="margin-left: 0;">
                         Ayah {{$registration->learner->father->phone}}
                     </li>
-                    <li>Ibu {{$registration->learner->mother->phone}}</li>
-                    <li>Wali {{$registration->learner->guardian->phone}}</li>
+                    <li style="margin-left: 0;">Ibu {{$registration->learner->mother->phone}}</li>
+                    <li style="margin-left: 0;">Wali {{$registration->learner->guardian->phone}}</li>
                 </ul>
             </td>
         </tr>
@@ -169,6 +172,7 @@
                 <br>
                 <br>
                 <br>
+                <br>
                 (_______________)
             </td>
         </tr>
@@ -176,32 +180,35 @@
 
     <hr style="margin-top: 25px; margin-bottom: 25px;">
     
-    <h2 class="text-center">PENDAFTARAN PESERTA DIDIK BARU</h2>
+    <h2 class="text-center" style="margin-bottom: 0; margin-top:0;">PENDAFTARAN PESERTA DIDIK BARU</h2>
 
-    <h2 class="text-center">TANDA TERIMA</h2>
+    <h2 class="text-center" style="margin-bottom: 0; margin-top:0;">SDIT CAHAYA UMMAT</h2>
+
+    <h2 class="text-center" style="margin-bottom: 0; margin-top:0;">TANDA TERIMA</h2>
     
-    <p>Telah kami terima biaya daftar ulang dari:</p>
+    <p style="margin-top: 50px;">Telah kami terima biaya daftar ulang dari:</p>
 
     <table>
         <tr>
-            <td>Orang Tua / Wali Murid</td>
+            <td>Orang Tua / Wali Murid dari</td>
             <td>:</td>
-            <td></td>
+            <td><i style="margin-left:0;">{{$registration->name_of_candidate}}</i></td>
         </tr>
         <tr>
             <td style="width: 30%;">Nominal</td>
             <td style="width: 3%;">:</td>
-            <td>Rp 0,-</td>
+            <td>Rp {{number_format($registration->nominal, 0, ',', '.')}},-</td>
         </tr>
     </table>
 
-    <table>
+    <table style="margin-top: 25px;">
         <tr>
             <td style="width: 50%;"></td>
             <td style="width: 50%;" class="text-center">
                 Bergas, {{Carbon\Carbon::now()->format('d/m/Y')}}
                 <br>
                 Tata Usaha
+                <br>
                 <br>
                 <br>
                 <br>

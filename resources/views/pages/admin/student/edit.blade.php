@@ -25,6 +25,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="nominal" class="col-form-label-sm">Nominal</label>
+
+                            <input type="number" name="nominal" id="nominal" class="form-control form-control-sm @if ($errors->has('nominal')) is-invalid @endif" value="{{old('nominal') ?: $registration->nominal}}">
+
+                            @if ($errors->has('nominal'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('nominal')}}
+                            </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
                             <label for="status">Status Pembayaran</label>
 
                             <select name="status" id="status" class="custom-select custom-select-sm">
