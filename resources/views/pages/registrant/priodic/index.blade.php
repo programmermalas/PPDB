@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="kilometer" class="col-form-label-sm">Sebutkan (dalam kilometer)</label>
+                            <label for="kilometer" class="col-form-label-sm">Jarak rumah ke sekolah (dalam kilometer)</label>
 
                             <input type="number" name="kilometer" id="kilometer" class="form-control form-control-sm @if ($errors->has('kilometer')) is-invalid @endif" value="{{$learner->priodic->kilometer ?? old('kilometer')}}" placeholder="Masukan kilometer disini" min="0">
 
