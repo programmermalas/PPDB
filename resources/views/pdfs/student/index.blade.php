@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rincian Biaya</title>
+    <title>Rincian Biaya {{$registration->user->number}}</title>
 </head>
 <body>
     <style type="text/css">

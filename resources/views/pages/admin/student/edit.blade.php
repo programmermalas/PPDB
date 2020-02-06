@@ -35,15 +35,6 @@
                             </div>
                             @endif
                         </div>
-
-                        <div class="form-group">
-                            <label for="status">Status Pembayaran</label>
-
-                            <select name="status" id="status" class="custom-select custom-select-sm">
-                                <option value="unpayment">Belum Dibayar</option>
-                                <option value="payment">Sudah Dibayar</option>
-                            </select>
-                        </div>
                     </div>
 
                     <div class="card-footer d-flex justify-content-end">
