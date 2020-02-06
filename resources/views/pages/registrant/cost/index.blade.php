@@ -222,6 +222,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="infaq" class="col-form-label-sm">Seragam</label>
+
+                            <input type="string" class="form-control form-control-sm" value="Rp {{$learner->personal->gender == 'boy' ? number_format(530000, 0, ',', '.') : number_format(580000, 0, ',', '.')}},-" readonly>
+                        </div>
+
+                        <div class="form-group">
                             <label for="infaq" class="col-form-label-sm">Biaya Pendidikan Satu Tahun</label>
 
                             <input type="string" class="form-control form-control-sm" value="Rp 865.000,-" readonly>
