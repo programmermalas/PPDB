@@ -30,6 +30,7 @@
                                 <th class="text-center">No</th>
                                 <th>Nama</th>
                                 <th class="text-center">Status Pembayaran</th>
+                                <th class="text-center">Nominal</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -50,6 +51,7 @@
                                         <span class="badge badge-success">Sudah Dibayar</span>
                                     @endif    
                                 </td>
+                                <td class="text-center">Rp {{number_format($student->nominal, 0, ',', '.')}},-</td>
                                 <td class="text-center">
                                     <a href="{{route('admin.student.print', $student->id)}}" class="btn btn-success btn-sm">Print</a>
 
