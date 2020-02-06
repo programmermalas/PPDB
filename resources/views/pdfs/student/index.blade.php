@@ -176,6 +176,8 @@
 
     <hr style="margin-top: 25px; margin-bottom: 25px;">
     
+    <h2 class="text-center">PENDAFTARAN PESERTA DIDIK BARU</h2>
+
     <h2 class="text-center">TANDA TERIMA</h2>
     
     <p>Telah kami terima biaya daftar ulang dari:</p>
