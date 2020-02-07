@@ -26,7 +26,7 @@
                         <input type="hidden" name="id" value="{{$learner->id ?? null}}">
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label-sm">Nama Ayah Kandung <span class="text-danger">*</span></label>
+                            <label for="name" class="col-form-label-sm">Nama Ayah Kandung</label>
 
                             <input type="text" name="name" id="name" class="form-control form-control-sm @if ($errors->has('name')) is-invalid @endif" value="{{$learner->father->name ?? old('name')}}" placeholder="Masukan nama ayah kandung disini">
 
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="nik" class="col-form-label-sm">NIK Ayah <span class="text-danger">*</span></label>
+                            <label for="nik" class="col-form-label-sm">NIK Ayah</label>
 
                             <input type="text" name="nik" id="nik" class="form-control form-control-sm @if ($errors->has('nik')) is-invalid @endif" value="{{$learner->father->nik ?? old('nik')}}" placeholder="Masukan nik ayah disini">
 
