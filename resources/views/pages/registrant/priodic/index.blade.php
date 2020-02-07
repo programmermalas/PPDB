@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label for="height" class="col-form-label-sm">Tinggi Badan<span class="text-danger">*</span></label>
 
-                            <input type="number" name="height" id="height" class="form-control form-control-sm @if ($errors->has('height')) is-invalid @endif" value="{{!empty($learner->priodic->height) ? $learner->priodic->height : old('height')}}" placeholder="Masukan tinggi disini" min="0">
+                            <input type="text" name="height" id="height" class="form-control form-control-sm @if ($errors->has('height')) is-invalid @endif" value="{{!empty($learner->priodic->height) ? $learner->priodic->height : old('height')}}" placeholder="Masukan tinggi disini" min="0">
 
                             @if ($errors->has('height'))
                             <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label for="weight" class="col-form-label-sm">Berat Badan<span class="text-danger">*</span></label>
 
-                            <input type="number" name="weight" id="weight" class="form-control form-control-sm @if ($errors->has('weight')) is-invalid @endif" value="{{!empty($learner->priodic->weight) ? $learner->priodic->weight : old('weight')}}" placeholder="Masukan berat disini" min="0">
+                            <input type="text" name="weight" id="weight" class="form-control form-control-sm @if ($errors->has('weight')) is-invalid @endif" value="{{!empty($learner->priodic->weight) ? $learner->priodic->weight : old('weight')}}" placeholder="Masukan berat disini" min="0">
 
                             @if ($errors->has('weight'))
                             <div class="invalid-feedback">
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="kilometer" class="col-form-label-sm">Jarak rumah ke sekolah (dalam kilometer)</label>
 
-                            <input type="number" name="kilometer" id="kilometer" class="form-control form-control-sm @if ($errors->has('kilometer')) is-invalid @endif" value="{{$learner->priodic->kilometer ?? old('kilometer')}}" placeholder="Masukan kilometer disini" min="0">
+                            <input type="text" name="kilometer" id="kilometer" class="form-control form-control-sm @if ($errors->has('kilometer')) is-invalid @endif" value="{{$learner->priodic->kilometer ?? old('kilometer')}}" placeholder="Masukan kilometer disini" min="0">
 
                             @if ($errors->has('kilometer'))
                             <div class="invalid-feedback">
@@ -86,3 +86,14 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="height"]').mask("000");
+            $('input[name="weight"]').mask("000");
+            $('input[name="kilometer"]').mask("##.#", {reverse: true});
+            $('input[name="time"]').mask("000");
+        })
+    </script>
+@endpush
