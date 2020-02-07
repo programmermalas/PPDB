@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label for="number_of_siblings" class="col-form-label-sm">Jumlah saudara kandung <span class="text-danger">*</span></label>
 
-                            <input type="number" name="number_of_siblings" id="number_of_siblings" class="form-control form-control-sm @if ($errors->has('number_of_siblings')) is-invalid @endif" value="{{$learner->personal->number_of_siblings ?? old('number_of_siblings')}}" placeholder="Masukan jumlah saudara kandung disini" min="0">
+                            <input type="text" name="number_of_siblings" id="number_of_siblings" class="form-control form-control-sm @if ($errors->has('number_of_siblings')) is-invalid @endif" value="{{$learner->personal->number_of_siblings ?? old('number_of_siblings')}}" placeholder="Masukan jumlah saudara kandung disini" min="0">
 
                             @if ($errors->has('number_of_siblings'))
                             <div class="invalid-feedback">
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <label for="order_in_family" class="col-form-label-sm">Anak keberapa <span class="text-danger">*</span></label>
 
-                            <input type="number" name="order_in_family" id="order_in_family" class="form-control form-control-sm @if ($errors->has('order_in_family')) is-invalid @endif" value="{{$learner->personal->order_in_family ?? old('order_in_family')}}" placeholder="Masukan anak keberapa disini" min="0">
+                            <input type="text" name="order_in_family" id="order_in_family" class="form-control form-control-sm @if ($errors->has('order_in_family')) is-invalid @endif" value="{{$learner->personal->order_in_family ?? old('order_in_family')}}" placeholder="Masukan anak keberapa disini" min="0">
 
                             @if ($errors->has('order_in_family'))
                             <div class="invalid-feedback">
@@ -135,3 +135,15 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="date"]').mask("00/00/0000");
+            $('input[name="number_of_siblings"]').mask("00");
+            $('input[name="order_in_family"]').mask("00");
+            $('input[name="number_family_card"]').mask("00000000000000000000000000000000000000000000000000");
+            $('input[name="birth_certificate_registration"]').mask("00000000000000000000000000000000000000000000000000");
+        })
+    </script>
+@endpush
