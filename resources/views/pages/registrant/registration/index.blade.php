@@ -81,3 +81,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="date_of_birth"]').mask("00/00/0000");
+        })
+    </script>
+@endpush
