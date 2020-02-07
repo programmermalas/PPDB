@@ -147,3 +147,13 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="neighborhood_association"]').mask("000");
+            $('input[name="citizens_association"]').mask("000");
+            $('input[name="postal_code"]').mask("0000");
+        })
+    </script>
+@endpush
