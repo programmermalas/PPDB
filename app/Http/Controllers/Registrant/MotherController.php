@@ -59,6 +59,11 @@ class MotherController extends Controller
         try
         {
             $date   = null;
+            $income = null;
+            if ($request->income)
+            {
+                $income = str_replace('.', '', $request->income);
+            }
 
             if ($request->year_of_birth)
             {
@@ -74,7 +79,7 @@ class MotherController extends Controller
                 'year_of_birth' => $date,
                 'last_study'    => $request->last_study,
                 'profession'    => $request->profession,
-                'income'        => $request->income,
+                'income'        => $income,
                 'phone'         => $request->phone,
             ]);
         }

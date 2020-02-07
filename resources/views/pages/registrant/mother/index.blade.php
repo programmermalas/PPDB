@@ -27,7 +27,7 @@
                         <input type="hidden" name="id" value="{{$learner->id ?? null}}">
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label-sm">Nama Ibu Kandung <span class="text-danger">*</span></label>
+                            <label for="name" class="col-form-label-sm">Nama Ibu Kandung</label>
 
                             <input type="text" name="name" id="name" class="form-control form-control-sm @if ($errors->has('name')) is-invalid @endif" value="{{$learner->mother->name ?? old('name')}}" placeholder="Masukan nama ibu kandung disini">
 
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="nik" class="col-form-label-sm">NIK Ibu <span class="text-danger">*</span></label>
+                            <label for="nik" class="col-form-label-sm">NIK Ibu</label>
 
                             <input type="text" name="nik" id="nik" class="form-control form-control-sm @if ($errors->has('nik')) is-invalid @endif" value="{{$learner->mother->nik ?? old('nik')}}" placeholder="Masukan nik ibu disini">
 
@@ -89,13 +89,18 @@
                         <div class="form-group">
                             <label for="income" class="col-form-label-sm">Penghasilan Bulanan</label>
 
-                            <input type="text" name="income" id="income" class="form-control form-control-sm @if ($errors->has('income')) is-invalid @endif" value="{{$learner->mother->income ?? old('income')}}" placeholder="Masukan penghasilan bulanan disini">
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="text" name="income" id="income" class="form-control form-control-sm @if ($errors->has('income')) is-invalid @endif" value="{{$learner->mother->income ?? old('income')}}" placeholder="Masukan penghasilan bulanan disini">
 
-                            @if ($errors->has('income'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('income')}}
+                                @if ($errors->has('income'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('income')}}
+                                </div>
+                                @endif
                             </div>
-                            @endif
                         </div>
 
                         <div class="form-group">
@@ -120,3 +125,12 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="income"]').mask("000.000.000", {reverse: true});
+            $('input[name="year_of_birth"]').mask("0000", {reverse: true});
+        })
+    </script>
+@endpush
