@@ -79,5 +79,9 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{asset('js/jquery-mask/jquery.mask.js')}}"></script>
+    @stack('scripts')
 </body>
 </html>

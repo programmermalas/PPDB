@@ -88,13 +88,18 @@
                         <div class="form-group">
                             <label for="income" class="col-form-label-sm">Penghasilan Bulanan</label>
 
-                            <input type="text" name="income" id="income" class="form-control form-control-sm @if ($errors->has('income')) is-invalid @endif" value="{{$learner->father->income ?? old('income')}}" placeholder="Masukan penghasilan bulanan disini">
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                </div>
+                                <input type="text" name="income" id="income" class="form-control form-control-sm @if ($errors->has('income')) is-invalid @endif" value="{{$learner->father->income ?? old('income')}}" placeholder="Masukan penghasilan bulanan disini">
 
-                            @if ($errors->has('income'))
-                            <div class="invalid-feedback">
-                                {{$errors->first('income')}}
+                                @if ($errors->has('income'))
+                                <div class="invalid-feedback">
+                                    {{$errors->first('income')}}
+                                </div>
+                                @endif
                             </div>
-                            @endif
                         </div>
 
                         <div class="form-group">
@@ -119,3 +124,12 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="income"]').mask("000.000.000", {reverse: true});
+            $('input[name="year_of_birth"]').mask("0000", {reverse: true});
+        })
+    </script>
+@endpush
