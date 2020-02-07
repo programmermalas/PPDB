@@ -74,18 +74,24 @@ class StudentController extends Controller
     {
         $request->validate([
             'name_of_candidate'     => 'required|max:25',
-            'nominal'               => 'required|numeric',
+            'nominal'               => 'required',
         ]);
 
         try
         {
+            $nominal = null;
+            if ($request->nominal)
+            {
+                $nominal = str_replace('.', '', $request->nominal);
+            }
+
             $registration->name_of_candidate    = $request->name_of_candidate;
             $registration->status = 'unpayment';
-            if ($request->nominal > 0)
+            if ($nominal > 0)
             {
                 $registration->status = 'payment';
             }
-            $registration->nominal              = $request->nominal;
+            $registration->nominal              = $nominal;
             $registration->save();
         }
         catch (\Exception $e)
