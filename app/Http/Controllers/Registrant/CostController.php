@@ -56,6 +56,13 @@ class CostController extends Controller
 
         try
         {
+            $infaq  = null;
+
+            if ($request->infaq)
+            {
+                $infaq = str_replace('.', '', $request->infaq);
+            }
+
             $uniform    = 530000;
 
             if (Auth::user()->registration->learner->personal->gender == 'girl')
@@ -72,7 +79,7 @@ class CostController extends Controller
                 'facilities_and_infrastructure'             => $request->facilities_and_infrastructure,
                 'educational_assistance_donors'             => $request->educational_assistance_donors,
                 'uniform'                                   => $uniform,
-                'infaq'                                     => $request->infaq,
+                'infaq'                                     => $infaq,
             ]);
         }
         catch (\Exception $e)

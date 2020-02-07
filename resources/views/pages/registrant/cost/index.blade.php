@@ -281,3 +281,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function ($) {
+            $('input[name="infaq"]').mask("000.000.000", {reverse: true});
+        })
+    </script>
+@endpush
