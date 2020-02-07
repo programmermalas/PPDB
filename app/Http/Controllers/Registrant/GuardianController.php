@@ -59,6 +59,11 @@ class GuardianController extends Controller
         try
         {
             $date   = null;
+            $income = null;
+            if ($request->income)
+            {
+                $income = str_replace('.', '', $request->income);
+            }
 
             if ($request->year_of_birth)
             {
