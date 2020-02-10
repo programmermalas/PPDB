@@ -123,8 +123,8 @@
             </tr>
             <tr>
                 <td class="text-center">7.</td>
-                <td>Biaya Administrasi</td>
-                <td class="text-right">Rp{{number_format(100000, 0, ',', '.')}},-</td>
+                <td>Paket Buku</td>
+                <td class="text-right">Rp{{number_format(605000, 0, ',', '.')}},-</td>
             </tr>
             <tr>
                 <td class="text-center">8.</td>
