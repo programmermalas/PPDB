@@ -30,15 +30,15 @@
             <th>{{$registration->learner->personal->gender == 'boy' ? 'l' : 'p'}}</th>
             <th>{{$registration->school_origin}}</th>
             <th>{{$registration->nominal}}</th>
-            <th>{{$registration->learner->cost->institutional_development_contributions}}</th>
-            <th>{{$registration->learner->cost->donation}}</th>
-            <th>{{$registration->learner->cost->facilities_and_infrastructure}}</th>
-            <th>{{$registration->learner->cost->educational_assistance_donors}}</th>
-            <th>{{$registration->learner->cost->uniform}}</th>
+            <th>{{$registration->learner->cost->institutional_development_contributions ?? null}}</th>
+            <th>{{$registration->learner->cost->donation ?? null}}</th>
+            <th>{{$registration->learner->cost->facilities_and_infrastructure ?? null}}</th>
+            <th>{{$registration->learner->cost->educational_assistance_donors ?? null}}</th>
+            <th>{{$registration->learner->cost->uniform ?? null}}</th>
             <th>865000</th>
             <th>605000</th>
             <th>100000</th>
-            <th>{{$registration->learner->cost->infaq}}</th>
+            <th>{{$registration->learner->cost->infaq ?? null}}</th>
         </tr>
         @endforeach
     </tbody>
