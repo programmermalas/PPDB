@@ -64,6 +64,7 @@ Route::group(['middleware' => ['role:admin']], function () {
             Route::post('user/show', 'Admin\UserController@show')->name('user.show');
             Route::get('user/{user}/print', 'Admin\UserController@print')->name('user.print');
             
+            Route::get('student/export', 'Admin\StudentController@export')->name('student.export');
             Route::get('student', 'Admin\StudentController@index')->name('student.index');
             Route::post('student/show', 'Admin\StudentController@show')->name('student.show');
             Route::get('student/{registration}', 'Admin\StudentController@edit')->name('student.edit');

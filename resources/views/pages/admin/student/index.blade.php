@@ -11,14 +11,17 @@
                         Calon Peserta Didik
                     </div>
                     <div>
-                        <form action="{{route('admin.student.show')}}" method="post">
+                        <form class="form-inline" action="{{route('admin.student.show')}}" method="post">
                             @csrf
+
                             <div class="input-group">
                                 <input type="text" name="keyword" class="form-control form-control-sm" placeholder="search" aria-label="search" aria-describedby="button-search">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-sm btn-primary" type="button" id="button-search">Search</button>
                                 </div>
                             </div>
+
+                            <a href="{{route('admin.student.export')}}" class="btn btn-sm btn-primary ml-1">Export</a>
                         </form>
                     </div>
                 </div>

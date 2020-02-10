@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use PDF;
 use Auth;
 
 use App\Registration;
+
+use App\Exports\RegistrationExport;
 
 class StudentController extends Controller
 {
@@ -110,5 +113,10 @@ class StudentController extends Controller
         $pdf    = PDF::loadview('pdfs.student.index', compact('registration', 'cost', 'total'))->setPaper([0, 0, 612, 935.433]);
 
         return $pdf->stream('rincian biaya.pdf');
+    }
+
+    public function export()
+    {
+        return Excel::download(new RegistrationExport, 'registration.xlsx');
     }
 }
