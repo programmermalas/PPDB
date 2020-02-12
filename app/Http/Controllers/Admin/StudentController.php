@@ -24,14 +24,14 @@ class StudentController extends Controller
     {
         try
         {
-            $students    = Registration::whereYear('created_at', Carbon::now()->format('Y'))->get();
+            $registrations    = Registration::whereYear('created_at', Carbon::now()->format('Y'))->get();
         }
         catch (\Exception $e)
         {
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return view('pages.admin.student.index', compact('students'));
+        return view('pages.admin.student.index', compact('registrations'));
     }
 
     /**
@@ -45,14 +45,14 @@ class StudentController extends Controller
         try
         {
             $keyword    = $request->keyword;
-            $students   = Registration::where('name_of_candidate', 'LIKE', "%$keyword%")->get();
+            $registrations   = Registration::where('name_of_candidate', 'LIKE', "%$keyword%")->get();
         }
         catch (\Exception $e)
         {
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return view('pages.admin.student.show', compact('students', 'keyword'));
+        return view('pages.admin.student.show', compact('registrations', 'keyword'));
     }
 
     /**

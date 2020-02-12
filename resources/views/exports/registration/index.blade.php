@@ -25,11 +25,11 @@
         @foreach ($registrations as $registration)
         <tr>
             <th>{{++$no}}</th>
-            <th>{{$registration->name_of_candidate}}</th>
-            <th>{{$registration->place_of_birth}}, {{Carbon\Carbon::parse($registration->date_of_birth)->format('d/m/Y')}}</th>
-            <th>{{$registration->learner->personal->gender == 'boy' ? 'l' : 'p'}}</th>
-            <th>{{$registration->school_origin}}</th>
-            <th>{{$registration->nominal}}</th>
+            <th>{{$registration->name_of_candidate ?? null}}</th>
+            <th>{{$registration->place_of_birth ?? null}}, {{$registration->date_of_birth ? Carbon\Carbon::parse($registration->date_of_birth)->format('d/m/Y') : null}}</th>
+            <th>{{$registration->learner->personal->gender ? ($registration->learner->personal->gender == 'boy' ? 'l' : 'p') : null}}</th>
+            <th>{{$registration->school_origin ?? null}}</th>
+            <th>{{$registration->nominal ?? null}}</th>
             <th>{{$registration->learner->cost->institutional_development_contributions ?? null}}</th>
             <th>{{$registration->learner->cost->donation ?? null}}</th>
             <th>{{$registration->learner->cost->facilities_and_infrastructure ?? null}}</th>

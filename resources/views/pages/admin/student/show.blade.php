@@ -11,7 +11,7 @@
                         Calon Peserta Didik
                     </div>
                     <div>
-                        <form action="{{route('admin.student.show')}}" method="post">
+                        <form class="form-inline" action="{{route('admin.student.show')}}" method="post">
                             @csrf
                             <div class="input-group">
                                 <input type="text" name="keyword" class="form-control form-control-sm" placeholder="search" value="{{$keyword}}" aria-label="search" aria-describedby="button-search">
@@ -19,6 +19,8 @@
                                     <button type="submit" class="btn btn-sm btn-primary" type="button" id="button-search">Search</button>
                                 </div>
                             </div>
+
+                            <a href="{{route('admin.student.export')}}" class="btn btn-sm btn-primary ml-1">Export</a>
                         </form>
                     </div>
                 </div>
@@ -29,7 +31,9 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th>Nama</th>
-                                <th class="text-center">Status Pembayaran</th>
+                                <th class="text-center">Status Daftar Ulang</th>
+                                <th class="text-center">Nominal</th>
+                                <th class="text-center">Total</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -38,20 +42,26 @@
                                 $no = 0;
                             @endphp
                             
-                            @if ($students->count() > 0)
-                            @foreach ($students as $student)
+                            @if ($registrations->count() > 0)
+                            @foreach ($registrations as $registration)
                             <tr>
                                 <td class="text-center">{{++$no}}</td>
-                                <td>{{$student->name_of_candidate}}</td>
+                                <td>{{$registration->name_of_candidate}}</td>
                                 <td class="text-center">
-                                    @if ($student->status == 'unpayment')
-                                        <span class="badge badge-danger">Belum Dibayar</span>
-                                    @elseif ($student->status == 'payment')
-                                        <span class="badge badge-success">Sudah Dibayar</span>
+                                    @if ($registration->status == 'unpayment')
+                                        <span class="badge badge-danger">Belum Daftar Ulang</span>
+                                    @elseif ($registration->status == 'payment')
+                                        <span class="badge badge-success">Sudah Daftar Ulang</span>
                                     @endif    
                                 </td>
+                                <td class="text-center">Rp {{number_format($registration->nominal, 0, ',', '.')}},-</td>
+                                <td class="text-center">Rp {{number_format($registration->learner->cost 
+                                        ? $registration->learner->cost->total()
+                                        : 0 , 0, ',', '.')}},-</td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.student.edit', $student->id)}}" class="btn btn-info btn-sm">Edit</a>
+                                    <a href="{{route('admin.student.print', $registration->id)}}" class="btn btn-success btn-sm">Print</a>
+
+                                    <a href="{{route('admin.student.edit', $registration->id)}}" class="btn btn-info btn-sm">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -63,11 +63,11 @@
                 <tfoot class="font-weight-bold">
                     <tr>
                         <td colspan="2" class="text-center">Total</td>
-                        <td class="text-right">Rp{{number_format($total, 0, ',', '.')}},-</td>
+                        <td class="text-right">Rp{{number_format($cost->total(), 0, ',', '.')}},-</td>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center">Total yang harus dibayar 50%</td>
-                        <td class="text-right">Rp{{number_format($total * 50 / 100, 0, ',', '.')}},-</td>
+                        <td class="text-right">Rp{{number_format($cost->total() * 50 / 100, 0, ',', '.')}},-</td>
                     </tr>
                 </tfoot>
             </table>
